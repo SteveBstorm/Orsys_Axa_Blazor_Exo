@@ -1,0 +1,41 @@
+﻿@page "/form"
+<h3>Form</h3>
+<EditForm Model="UserForm" OnValidSubmit="ValidForm">
+    @*<DataAnnotationsValidator />*@
+    <ObjectGraphDataAnnotationsValidator />
+    <p>
+        <label>Email </label>
+        <InputText class="form-control" @bind-Value="UserForm.Email" />
+    </p>
+    <p>
+        <label>Username </label>
+        <InputText class="form-control" @bind-Value="UserForm.Username" />
+    </p>
+    <p>
+        <label>Birthdate </label>
+        <InputDate class="form-control" @bind-Value="UserForm.Birthdate" />
+    </p>
+   @* @for(int i = 0; i < UserForm.Favoris.Count; i++){
+        var x = UserForm.Favoris[i];
+        <p>
+            <label>Favoris @i </label>
+            <InputText class="form-control" @bind-Value="x" />
+        </p>
+    }*@
+
+    <button @onclick="AddFavori">+</button>
+    @foreach(Favoris f in UserForm.Favoris){
+        <p>
+            <label>Favoris </label>
+            <InputText class="form-control" @bind-Value="f.Value" />
+        </p>
+    }
+    
+   
+    <button class="btn btn-info" type="submit">Valider</button>
+    <ValidationSummary />
+</EditForm>
+
+@code {
+
+}

@@ -1,0 +1,33 @@
+﻿@page "/exoform"
+<h3>ExoForm</h3>
+<EditForm Model="MyForm"
+          OnValidSubmit="ValidSubmit"
+          OnInvalidSubmit="InvalidSubmit">
+          <DataAnnotationsValidator />
+    <p>
+        <label>Nom</label>
+        <InputText @bind-Value="MyForm.Nom" />
+    </p>
+    <p>
+        <label>Email</label>
+        <InputText type="email" @bind-Value="MyForm.Email" />
+    </p>
+    <p>
+        <label>Telephone</label>
+        <InputText type="phone" @bind-Value="MyForm.Tel" />
+    </p>
+    <p>
+        <label>Message</label>
+        <InputTextArea @bind-Value="MyForm.Message" />
+    </p>
+    <p>
+        <label>Couleur</label>
+        <InputText type="color" @bind-Value="MyForm.Couleur" />
+    </p>
+    <ValidationSummary />
+    <button type="submit">Valider</button>
+</EditForm>
+<button @onclick="ValidSubmit">test</button>
+@code {
+
+}

@@ -1,0 +1,37 @@
+﻿@page "/"
+
+<PageTitle>Index</PageTitle>
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<SurveyPrompt Title="How is Blazor working for you?" />
+
+@*@for(int i = 0; i < 10; i++){
+    if(i % 2 == 0) {
+        <Reusable CurrentUser="" />
+    }
+}*@
+
+@foreach(User u in users){
+    <Reusable CurrentUser="u" />
+}
+
+@code {
+    List<User> users = new List<User>();
+    protected override void OnInitialized()
+    {
+        users.Add(new User
+            {
+                Email = "toto@test.com",
+                Username = "toto"
+            });
+        users.Add(new User
+            {
+                Email = "tata@test.com",
+                Username = "tata"
+            });
+    }
+}
+

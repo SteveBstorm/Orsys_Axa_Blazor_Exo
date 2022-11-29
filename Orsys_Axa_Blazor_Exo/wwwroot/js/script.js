@@ -1,0 +1,1 @@
+﻿let maFonction = function () => { alert("salut"); }
